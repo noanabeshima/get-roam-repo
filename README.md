@@ -3,7 +3,7 @@ Convert a GitHub repository's file-structure into Markdown for taking notes with
 
 The program will print the result and save it to your clipboard. The output is originally intended to be for pasting into Roam.
 
-`python main.py -repo shawwn/stylegan2`
+`python main.py --repo shawwn/stylegan2`
 
 becomes
 
