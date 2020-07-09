@@ -4,6 +4,7 @@ import os
 import fire
 import pyperclip
 
+
 def print_dir(root: dict, n_indent: int = 0):
     res = ""
     for d in root.keys():
@@ -12,10 +13,9 @@ def print_dir(root: dict, n_indent: int = 0):
             res += print_dir(root[d], n_indent+1)
     assert '_files' in root.keys(), root
     for f in root['_files']:
-        res += f"{' '*4*n_indent}- **{f}**\n"
+        res += f"{' '*4*n_indent}- {f}\n"
 
     return res
-
 
 def main(repo = "githubtraining/hellogitworld"):
     root = dict()
@@ -29,13 +29,13 @@ def main(repo = "githubtraining/hellogitworld"):
             head = head[d]
         for d in dirs:
             head[d] = dict()
-        files = [f if f != "__init__.py" else "$$\_\_$$init$$\_\_$$.py" for f in files]
+        files = ["**"+f+"**" if f != "__init__.py" else "$$\_\_$$**init**$$\_\_$$**.py**" for f in files]
 
         head["_files"] = files
 
     os.system(f"rm -rf /tmp/{repo}")
 
-    result = print_dir(root)
+    result = print_dir(root)[:-1] # remove last \n
     print(result)
     pyperclip.copy(result)
 
