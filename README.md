@@ -1,5 +1,5 @@
 # get-roam-repo
-Convert a GitHub repository's file-structure into Markdown for taking notes with Roam Research.
+Get Roam Repo (grr) converts a GitHub repository's file-structure into Markdown for taking notes with Roam Research.
 
 The program will print the result and save it to your clipboard. The output is originally intended to be for pasting into Roam.
 
